@@ -18,14 +18,13 @@ class ZeroBounceServiceProvider extends ServiceProvider
     {
         $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'zero-bounce');
 
+        $this->app->singleton(ZeroBounceFacade::class, function () {
 
-        $apiKey = config('zero-bounce.api_key');
+            $apiKey = config('zero-bounce.api_key');
 
-        if (!$apiKey || ! is_string($apiKey)  ) {
-            throw ApiKeyIsMissing::create();
-        }
-
-        $this->app->singleton(ZeroBounceFacade::class, function ($app) use($apiKey) {
+            if (!$apiKey || ! is_string($apiKey)  ) {
+                throw ApiKeyIsMissing::create();
+            }
 
             ZeroBounce::Instance()->initialize($apiKey);
             return ZeroBounce::Instance();
