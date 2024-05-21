@@ -1,0 +1,39 @@
+{
+    "name": "sarfrazrizwan/laravel-zerobounce",
+    "description": "Laravel package for ZeroBounce PHP SDK",
+    "type": "library",
+    "require": {
+        "php": "^7.4|^8.0",
+        "zero-bounce/sdk": "^1.1"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Sarfrazrizwan\\LaravelZerobounce\\": "src/",
+            "Sarfrazrizwan\\LaravelZerobounce\\Tests\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Rizwan Sarfraz",
+            "email": "rizwan.sarfraaz@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Sarfrazrizwan\\LaravelZerobounce\\ZeroBounceServiceProvider"
+            ]
+        }
+    },
+    "require-dev": {
+        "pestphp/pest": "^2.34",
+        "pestphp/pest-plugin-laravel": "^2.4",
+        "orchestra/testbench": "^8.23"
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    }
+}
