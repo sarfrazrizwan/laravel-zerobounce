@@ -2,6 +2,7 @@
 
 namespace Sarfrazrizwan\LaravelZerobounce;
 
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\ServiceProvider;
 use Sarfrazrizwan\LaravelZerobounce\Exceptions\ApiKeyIsMissing;
 use ZeroBounce\SDK\ZeroBounce;
@@ -40,6 +41,8 @@ class ZeroBounceServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-
+        Validator::extend('real_email', function ($attribute, $value, $parameters, $validator) {
+            return ZeroBounceFacade::validate($value)->status === 'valid';
+        }, 'The email address provided could not be verified as valid');
     }
 }

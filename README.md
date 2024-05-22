@@ -43,7 +43,7 @@ use Sarfrazrizwan\ZeroBounce\Facades\ZeroBounce;
 $email = 'example@example.com';
 $response = ZeroBounce::validate($email);
 
-if ($response->isValid()) {
+if ($response->status === 'valid') {
     echo "The email address is valid.";
 } else {
     echo "The email address is invalid.";
@@ -51,7 +51,17 @@ if ($response->isValid()) {
 
 
 ```
+### Validation Rule
 
+The package also includes a custom validation rule real_email that you can use in your Laravel validation logic:
+
+```bash
+
+$request->validate([
+    'email' => 'required|real_email',
+]);
+
+```
 ##  API Reference
 
 For detailed information about the available methods and their usage, please refer to the ZeroBounce PHP SDK documentation.
