@@ -1,6 +1,14 @@
 {
     "name": "sarfrazrizwan/laravel-zerobounce",
     "description": "Laravel package for ZeroBounce PHP SDK",
+    "keywords": [
+        "laravel",
+        "zerobounce",
+        "email validation",
+        "email verification",
+        "php sdk",
+        "laravel package"
+    ],
     "type": "library",
     "require": {
         "php": "^7.4|^8.0",
